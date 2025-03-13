@@ -6,7 +6,7 @@
 /*   By: gougier <gougier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:39:05 by gougier           #+#    #+#             */
-/*   Updated: 2025/03/11 12:32:30 by gougier          ###   ########.fr       */
+/*   Updated: 2025/03/13 14:15:09 by gougier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	init_all(t_minishell *minishell, char **envp)
 	minishell->default_param = 0;
 	minishell->shlvl = 2;
 	minishell->assign_tab = NULL;
-	minishell->flag_redir_out = 0;
-	minishell->flag_redir_in = 0;
 	minishell->flag_for_export = 0;
 	minishell->env = create_env(minishell, envp);
 	if (!minishell->env)
@@ -63,4 +61,6 @@ void	init_stdtemp(t_minishell *minishell)
 		close(minishell->stdin_temp);
 		exit(1);
 	}
+	minishell->flag_redir_out = 0;
+	minishell->flag_redir_in = 0;
 }
